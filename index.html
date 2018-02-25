@@ -1,17 +1,17 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="ja">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Type" content="text/html; charset=Unicode">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta http-equiv="Content-Script-Type" content="text/javascript">
-<title>ƒ‰ƒuƒ‰ƒCƒuI‚È‚ñ‚Å‚àƒ\[ƒg</title>
+<title>ãƒ©ãƒ–ãƒ©ã‚¤ãƒ–ï¼ãªã‚“ã§ã‚‚ã‚½ãƒ¼ãƒˆ</title>
 <script type="text/javascript" src="charasort.js">
 </script>
 <style type="text/css">
 <!--
 /**********************************************************
 
- •\‚ÌƒXƒ^ƒCƒ‹‚ð•ÏX‚·‚éê‡‚Í‚±‚±‚ð•ÒW‚µ‚Ä‚­‚¾‚³‚¢B
+ è¡¨ã®ã‚¹ã‚¿ã‚¤ãƒ«ã‚’å¤‰æ›´ã™ã‚‹å ´åˆã¯ã“ã“ã‚’ç·¨é›†ã—ã¦ãã ã•ã„ã€‚
 
 **********************************************************/
 body {
@@ -20,7 +20,7 @@ body {
 
 #mainTable{
 	font-size: 16px;
-	font-family: '‚l‚r ‚oƒSƒVƒbƒN',sans-serif;
+	font-family: 'ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯',sans-serif;
 	text-align: center;
 	vertical-align: middle;
 	width: 410px;
@@ -74,12 +74,12 @@ body {
 
 <form name="starter" align="center">
 	<select name="CharacterSelect" onchange="initList()">
-		<option selected>¥ƒ\[ƒg‘ÎÛ‚ð‘I‘ð</option>
+		<option selected>â–¼ã‚½ãƒ¼ãƒˆå¯¾è±¡ã‚’é¸æŠž</option>
 
 <script type="text/javascript">
 <!--
 for(i=0; i<MemberGroup.length; i++){
-	document.write("<option>" + MemberGroup[i][0] + "i" + Member[i].length + "j</option>");
+	document.write("<option>" + MemberGroup[i][0] + "ï¼ˆ" + Member[i].length + "ï¼‰</option>");
 }
 -->
 </script>
@@ -101,7 +101,7 @@ for(i=0; i<MemberGroup.length; i++){
 
 		<td class="middleField" onClick="if(finishFlag==0)sortList(0);">
 
-			ˆø‚«•ª‚¯
+			å¼•ãåˆ†ã‘
 		</td>
 		<td id="rightField" onClick="if(finishFlag==0)sortList(1);" rowspan="2">
 			&nbsp;
@@ -110,17 +110,17 @@ for(i=0; i<MemberGroup.length; i++){
 	<tr>
 		<td class="middleField" onClick="if(finishFlag==0)sortList(0);">
 
-			‚Ç‚Á‚¿‚à’m‚ç‚È‚¢
+			ã©ã£ã¡ã‚‚çŸ¥ã‚‰ãªã„
 		</td>
 
 	</tr>
 </table><br><br>
 <div id="resultField" style="text-align:center;">
-uƒ‰ƒuƒ‰ƒCƒu!vƒVƒŠ[ƒY‚ÌƒLƒƒƒ‰ƒ\[ƒg‚Å‚·B<br>
-ã‚Ìƒvƒ‹ƒ_ƒEƒ“ƒƒjƒ…[‚©‚çƒ\[ƒg‚µ‚½‚¢‘ÎÛ‚ð‘I‚ñ‚¾ŒãA<br>
-‚æ‚èD‚«‚ÈƒLƒƒƒ‰‚Ì–¼‘O‚ðƒNƒŠƒbƒN‚µ‚Ä‚¢‚Á‚Ä‚­‚¾‚³‚¢B<br>
+ã€Œãƒ©ãƒ–ãƒ©ã‚¤ãƒ–!ã€ã‚·ãƒªãƒ¼ã‚ºã®ã‚­ãƒ£ãƒ©ã‚½ãƒ¼ãƒˆã§ã™ã€‚<br>
+ä¸Šã®ãƒ—ãƒ«ãƒ€ã‚¦ãƒ³ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‹ã‚‰ã‚½ãƒ¼ãƒˆã—ãŸã„å¯¾è±¡ã‚’é¸ã‚“ã å¾Œã€<br>
+ã‚ˆã‚Šå¥½ããªã‚­ãƒ£ãƒ©ã®åå‰ã‚’ã‚¯ãƒªãƒƒã‚¯ã—ã¦ã„ã£ã¦ãã ã•ã„ã€‚<br>
 <BR>
-ÅŒã‚ÉA‚ ‚È‚½‚ÌD‚«‚ÈƒLƒƒƒ‰‚Ìƒ‰ƒ“ƒLƒ“ƒO‚ª‚¸‚ç[‚Á‚Æo‚Ü‚·B<br>
+æœ€å¾Œã«ã€ã‚ãªãŸã®å¥½ããªã‚­ãƒ£ãƒ©ã®ãƒ©ãƒ³ã‚­ãƒ³ã‚°ãŒãšã‚‰ãƒ¼ã£ã¨å‡ºã¾ã™ã€‚<br>
 </div>
 
 </body>
