@@ -499,6 +499,8 @@ function showResult() {
 	var sameRank = 1;
 	var str = "";
 	var num = 0;
+	var temp0 = MemberGroup[document.starter.CharacterSelect.selectedIndex-1][0] + " をソートしたよ！\n";
+	var temp1 = 7;
 	var i;
 	//ヘッダー
 	str += '<table class="resultTable" align="center"><tr>'
@@ -514,6 +516,11 @@ function showResult() {
 		+ '<td class="result"; style="background-color:'
 		+ ('coloralt' in CharList[num] ? CharList[num].coloralt : CharList[num].color[CharList[num].color.length-1])
 		+ '; padding-left:5px;">' + CharList[num].name + '</td></tr>';
+		
+		if(temp1 > 0){
+			temp0 += ranking + "位 " + CharList[num].name + "\n";
+			temp1--;
+		}
 
 		if (i<Member[SortingGroup].length-1) {
 			if (equal[lstMember[0][i]]==lstMember[0][i+1]) {
@@ -524,7 +531,11 @@ function showResult() {
 			}
 		}
 	}
-	str += "<\/table>";
+	//ツイート用
+	
+	str += '<\/table><br><a href="https://twitter.com/share?url=https://ratius.github.io/lovelivesort/&text='
+	+ encodeURIComponent(temp0 + "#ラブライブなんでもソート")
+	+ '&count=none&lang=ja" target="_blank">結果をツイート</a>'
 
 	document.getElementById("resultField").innerHTML = str;
 }
@@ -719,6 +730,7 @@ for(i=0; i<MemberGroup.length; i++){
 	暇な時にどうぞ。
 </p>
 <hr>
+2019/07/05 結果をツイートする機能を追加<br>
 2018/10/17 「μ'sユニット」「Aqoursユニット」モードを追加<br>
 2018/09/22 「μ'sカップリング」「Aqoursカップリング」モードを追加<br>
 2018/02/26 穂乃果の父、女性シンガー、saint snowを追加（実装忘れ）<br>
