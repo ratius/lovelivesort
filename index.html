@@ -47,22 +47,26 @@ const ColRina = "#cfd0e3";
 
 
 var MemberGroup = [
-	["  ","μ's",["Muse"]],
-	["┣","μ's＋A-RISE＋妹",["Muse","Muse2"]],
+	[""  ,"μ’s",["Muse"]],
+	["┣","μ’s＋A-RISE＋妹",["Muse","Muse2"]],
 	["┣","ラブライブ!",["Muse","Muse2","Muse3"]],
-	["┣","μ'sユニット",["MuseUnit"]],
-	["┗","μ'sカップリング",["MuseCP"]],
-	["  ","Aqours",["Aqours"]],
+	["┣","μ’sキャスト",["MuseCast"]],
+	["┣","μ’sユニット",["MuseUnit"]],
+	["┗","μ’sカップリング",["MuseCP"]],
+	[""  ,"Aqours",["Aqours"]],
 	["┣","Saint Aqours Snow",["Aqours","Aqours2"]],
 	["┣","ラブライブ!サンシャイン!!",["Aqours","Aqours2","Aqours3"]],
+	["┣","Aqoursキャスト",["AqoursCast"]],
 	["┣","Aqoursユニット",["AqoursUnit"]],
 	["┗","Aqoursカップリング",["AqoursCP"]],
-	["  ","μ's＆Aqorus",["Muse","Aqours"]],
-	["  ","虹ヶ咲学園スクールアイドル同好会",["Niji"]],
+	[""  ,"μ’s＆Aqorus",["Muse","Aqours"]],
+	[""  ,"虹ヶ咲学園スクールアイドル同好会",["Niji"]],
+	["┣","虹ヶ咲キャスト",["NijiCast"]],
 	["┣","虹ヶ咲ユニット",["NijiUnit"]],
 	["┗","虹ヶ咲カップリング",["NijiCP"]],
-	["  ","スクフェスAll Stars",["Muse","Aqours","Niji"]],
-	["  ","モブライブ!",["Seiran","Shino","Chitose","Touoh","Shion","YG"]],
+	[""  ,"スクフェスAll Stars",["Muse","Aqours","Niji"]],
+	["┗","スクスタキャスト",["MuseCast","AqoursCast","NijiCast"]],
+	[""  ,"スクフェス転入生",["Seiran","Shino","Chitose","Touoh","Shion","YG"]],
 	["┣","青藍高校",["Seiran"]],
 	["┣","東雲学院",["Shino"]],
 	["┣","千歳橋高校",["Chitose"]],
@@ -101,9 +105,19 @@ var CharList = [
 	{name:"アルパカ",       color:["#ddd"], group:{"Muse3":1}},
 	{name:"女性シンガー",   color:["#ddd"], group:{"Muse3":1}},
 
-	{name:"μ's1年生",      color:["#8be"], subtext:"西木野真姫<br>星空凛<br>小泉花陽", group:{"MuseUnit":1}},
-	{name:"μ's2年生",      color:["#e99"], subtext:"高坂穂乃果<br>南ことり<br>園田海未", group:{"MuseUnit":1}},
-	{name:"μ's3年生",      color:["#8e8"], subtext:"絢瀬絵里<br>東條希<br>矢澤にこ", group:{"MuseUnit":1}},
+	{name:"新田恵海",   subtext:"高坂穂乃果 役", color:[ColHono], group:{"MuseCast":1}},
+	{name:"南條愛乃",   subtext:"絢瀬絵里 役",   color:[ColEli ], group:{"MuseCast":1}},
+	{name:"内田彩",     subtext:"南ことり 役",   color:[ColKoto], group:{"MuseCast":1}},
+	{name:"三森すずこ", subtext:"園田海未 役",   color:[ColUmi ], group:{"MuseCast":1}},
+	{name:"飯田里穂",   subtext:"星空凛 役",     color:[ColRin ], group:{"MuseCast":1}},
+	{name:"Pile",       subtext:"西木野真姫 役", color:[ColMaki], group:{"MuseCast":1}},
+	{name:"楠田亜衣奈", subtext:"東條希 役",     color:[ColNozo], group:{"MuseCast":1}},
+	{name:"久保ユリカ", subtext:"小泉花陽 役",   color:[ColPana], group:{"MuseCast":1}},
+	{name:"徳井青空",   subtext:"矢澤にこ 役",   color:[ColNico], group:{"MuseCast":1}},
+
+	{name:"μ’s1年生",     color:["#8be"], subtext:"西木野真姫<br>星空凛<br>小泉花陽", group:{"MuseUnit":1}},
+	{name:"μ’s2年生",     color:["#e99"], subtext:"高坂穂乃果<br>南ことり<br>園田海未", group:{"MuseUnit":1}},
+	{name:"μ’s3年生",     color:["#8e8"], subtext:"絢瀬絵里<br>東條希<br>矢澤にこ", group:{"MuseUnit":1}},
 	{name:"Printemps",      color:["#fce"], subtext:"高坂穂乃果<br>南ことり<br>小泉花陽", group:{"MuseUnit":1}},
 	{name:"BiBi",           color:["#ff9"], subtext:"絢瀬絵里<br>矢澤にこ<br>西木野真姫", group:{"MuseUnit":1}},
 	{name:"lily white",     color:["#cfc"], subtext:"園田海未<br>東條希<br>星空凛", group:{"MuseUnit":1}},
@@ -175,6 +189,16 @@ var CharList = [
 	{name:"わたあめ",       color:["#ddd"], group:{"Aqours3":1}},
 	{name:"あんこ",         color:["#ddd"], subtext:"「ノクターン」<br>「ライラプス」", group:{"Aqours3":1}},
 
+	{name:"伊波杏樹",   subtext:"高海千歌 役",   color:[ColChik], group:{"AqoursCast":1}},
+	{name:"逢田梨香子", subtext:"桜内梨子 役",   color:[ColRiko], group:{"AqoursCast":1}},
+	{name:"諏訪ななか", subtext:"松浦果南 役",   color:[ColKana], group:{"AqoursCast":1}},
+	{name:"小宮有紗",   subtext:"黒澤ダイヤ 役", color:[ColDia ], group:{"AqoursCast":1}},
+	{name:"斉藤朱夏",   subtext:"渡辺曜 役",     color:[ColYou ], group:{"AqoursCast":1}},
+	{name:"小林愛香",   subtext:"津島善子 役",   color:[ColYosi], group:{"AqoursCast":1}},
+	{name:"高槻かなこ", subtext:"国木田花丸 役", color:[ColMaru], group:{"AqoursCast":1}},
+	{name:"鈴木愛奈",   subtext:"小原鞠莉 役",   color:[ColMari], group:{"AqoursCast":1}},
+	{name:"降幡愛",     subtext:"黒澤ルビィ 役", color:[ColRuby], group:{"AqoursCast":1}},
+
 	{name:"Aqours1年生",      color:["#ed9"], subtext:"国木田花丸<br>黒澤ルビィ<br>津島善子", group:{"AqoursUnit":1}},
 	{name:"Aqours2年生",      color:["#eaa"], subtext:"高海千歌<br>渡辺曜<br>桜内梨子", group:{"AqoursUnit":1}},
 	{name:"Aqours3年生",      color:["#9ec"], subtext:"黒澤ダイヤ<br>松浦果南<br>小原鞠莉", group:{"AqoursUnit":1}},
@@ -233,6 +257,16 @@ var CharList = [
 	{name:"優木せつ菜",     color:[ColSetu], group:{"Niji":1}},
 	{name:"エマ・ヴェルデ", color:[ColEmma], group:{"Niji":1}},
 	{name:"天王寺璃奈",     color:[ColRina], group:{"Niji":1}},
+
+	{name:"大西亜玖璃", subtext:"上原歩夢 役",   color:[ColAyum], group:{"NijiCast":1}},
+	{name:"相良茉優", subtext:"中須かすみ 役",   color:[ColKasu], group:{"NijiCast":1}},
+	{name:"前田佳織里", subtext:"桜坂しずく 役", color:[ColShiz], group:{"NijiCast":1}},
+	{name:"久保田未夢", subtext:"朝香果林 役",   color:[ColKari], group:{"NijiCast":1}},
+	{name:"村上奈津実", subtext:"宮下愛 役",     color:[ColAi  ], group:{"NijiCast":1}},
+	{name:"鬼頭明里",   subtext:"近江彼方 役",   color:[ColKnta], group:{"NijiCast":1}},
+	{name:"楠木ともり", subtext:"優木せつ菜 役", color:[ColSetu], group:{"NijiCast":1}},
+	{name:"指出毬亜",   subtext:"エマ・ヴェルデ 役", color:[ColEmma], group:{"NijiCast":1}},
+	{name:"田中ちえ美", subtext:"天王寺璃奈 役", color:[ColRina], group:{"NijiCast":1}},
 
 	{name:"虹ヶ咲学園1年生",  namealt:"虹ヶ咲学園<br>1年生",   color:["#ed9"], subtext:"国木田花丸<br>黒澤ルビィ<br>津島善子", group:{"NijiUnit":1}},
 	{name:"虹ヶ咲学園2年生",  namealt:"虹ヶ咲学園<br>2年生",   color:["#eaa"], subtext:"高海千歌<br>渡辺曜<br>桜内梨子", group:{"NijiUnit":1}},
@@ -604,9 +638,12 @@ function showResult() {
 	}
 	//ツイート用
 	
-	str += '<\/table><br><a href="https://twitter.com/share?url=https://ratius.github.io/lovelivesort/&text='
+	str += '<\/table><br><button id="tweet-button" onclick="window.open().location.href=' + "'"
+	+ 'https://twitter.com/share?url=https://ratius.github.io/lovelivesort/&text='
 	+ encodeURIComponent(temp0 + "#ラブライブなんでもソート")
-	+ '&count=none&lang=ja" target="_blank">結果をツイート</a>'
+	+ '&count=none&lang=ja'
+	+ "'" + '">結果をツイート</\button>';
+	
 
 	document.getElementById("resultField").innerHTML = str;
 }
@@ -734,6 +771,16 @@ body {
 	margin: 10px 0px;
 }
 
+#tweet-button{
+	width: auto;
+	margin: auto;
+	padding: 4px 10px;
+	background-color: #20a1f0;
+	border-radius: 5px;
+	color: white;
+	font-size: 120%;
+}
+
 //-->
 </style>
 </head>
@@ -782,7 +829,7 @@ for(i=0; i<MemberGroup.length; i++){
 	<tr>
 		<td class="middleField" onClick="if(finishFlag==0)sortList(0);">
 
-			どっちも知らない
+			どっちも興味無い
 		</td>
 
 	</tr>
@@ -794,19 +841,21 @@ for(i=0; i<MemberGroup.length; i++){
 	より好きなキャラの名前をクリックしていってください。
 </p>
 <p>
-	最後に、あなたの好きなキャラのランキングがずらーっと出ます。
+	最後に、あなたの好きなキャラのランキングがずらーっと出ます。<br>
+	「結果をツイート」ボタンを押すとツイートできます。
 </p>
 <p>
-	ソート対象の要素数が20以上のものは、結果が出るまでに時間がかかります。<br>
-	暇な時にどうぞ。
+	【注意】ソート対象の要素数が20以上のものは、結果が出るまでに時間がかかります。暇な時にどうぞ。<br>
+	7位以下だと思ったものは中央を押すことで時間短縮可能です。
 </p>
 <p>
 	要望・不具合報告は <a href="https://twitter.com/ratius55">@ratius55 のTwitter</a>までどうぞ。
 </p>
 <hr>
+2019/07/06 「μ’sキャスト」「Aqoursキャスト」「虹ヶ咲キャスト」モードを追加<br>
 2019/07/05 結果をツイートする機能を追加。「虹ヶ咲ユニット」「虹ヶ咲カップリング」モードを追加<br>
-2018/10/17 「μ'sユニット」「Aqoursユニット」モードを追加<br>
-2018/09/22 「μ'sカップリング」「Aqoursカップリング」モードを追加<br>
+2018/10/17 「μ’sユニット」「Aqoursユニット」モードを追加<br>
+2018/09/22 「μ’sカップリング」「Aqoursカップリング」モードを追加<br>
 2018/02/26 穂乃果の父、女性シンガー、saint snowを追加（実装忘れ）<br>
 2018/02/25 公開<br>
 </div>
