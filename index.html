@@ -1,19 +1,17 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta http-equiv="Content-Style-Type" content="text/css">
-<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta charset="utf-8">
 
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@ratius55">
 <meta name="twitter:creator" content="@ratius55">
-<meta name="twitter:title" content="ラブライブ！なんでもソート！">
+<meta name="twitter:title" content="ラブライブ！なんでもソート">
 <meta name="twitter:description" content="「ラブライブ!」シリーズの色々なものをソートできます。上のプルダウンメニューからソートしたい対象を選んだ後、より好きなキャラの名前をクリックしていってください。">
-<meta name="twitter:image" content="./card.png">
+<meta name="twitter:image" content="https://ratius.github.io/lovelivesort/card.png">
 
 <title>ラブライブ！なんでもソート</title>
-<script type="text/javascript">
+<script><!--
 
 //色の定義
 const ColHono = "#ffd6a5";
@@ -175,11 +173,13 @@ var CharList = [
 	{name:"黒澤ルビィ",     color:[ColRuby], group:{"Aqours":1}},
 
 	{name:"鹿角理亞",       color:["#eee"], group:{"Aqours2":1}},
-	{name:"鹿角聖良",       color:["#eee"], group:{"Aqours2":1}},
+	{name:"鹿角聖良",       color:["#adf"], group:{"Aqours2":1}},
 
 	{name:"千歌の母",       color:["#ddd"], group:{"Aqours3":1}},
 	{name:"梨子の母",       color:["#ddd"], group:{"Aqours3":1}},
 	{name:"善子の母",       color:["#ddd"], group:{"Aqours3":1}},
+	{name:"ダイヤの母",     color:["#ddd"], group:{"Aqours3":1}},
+	{name:"鞠莉の母",       color:["#ddd"], group:{"Aqours3":1}},
 	{name:"高海美渡",       color:["#ddd"], group:{"Aqours3":1}},
 	{name:"高海志満",       color:["#ddd"], group:{"Aqours3":1}},
 	{name:"よしみ",         color:["#ddd"], group:{"Aqours3":1}},
@@ -188,6 +188,7 @@ var CharList = [
 	{name:"しいたけ",       color:["#ddd"], group:{"Aqours3":1}},
 	{name:"わたあめ",       color:["#ddd"], group:{"Aqours3":1}},
 	{name:"あんこ",         color:["#ddd"], subtext:"「ノクターン」<br>「ライラプス」", group:{"Aqours3":1}},
+	{name:"渡辺月",         color:["#ddd"], group:{"Aqours3":1}},
 
 	{name:"伊波杏樹",   subtext:"高海千歌 役",   color:[ColChik], group:{"AqoursCast":1}},
 	{name:"逢田梨香子", subtext:"桜内梨子 役",   color:[ColRiko], group:{"AqoursCast":1}},
@@ -205,11 +206,9 @@ var CharList = [
 	{name:"CYaRon!",          color:["#fc9"], subtext:"高海千歌<br>渡辺曜<br>黒澤ルビィ", group:{"AqoursUnit":1}},
 	{name:"AZALEA",           color:["#fbd"], subtext:"松浦果南<br>黒澤ダイヤ<br>国木田花丸", group:{"AqoursUnit":1}},
 	{name:"Guilty Kiss",      color:["#cae"], subtext:"桜内梨子<br>津島善子<br>小原鞠莉", group:{"AqoursUnit":1}},
-	{name:"ぐ〜りんぱ",      color:["#fec"], subtext:"高海千歌<br>黒澤ダイヤ<br>津島善子", group:{"AqoursUnit":1}},
+	{name:"ぐ〜りんぱ",       color:["#fec"], subtext:"高海千歌<br>黒澤ダイヤ<br>津島善子", group:{"AqoursUnit":1}},
+	{name:"わいわいわい",     color:["#cef"], subtext:"渡辺曜<br>津島善子<br>黒澤ルビィ", group:{"AqoursUnit":1}},
 	{name:"Saint Snow",       color:["#fff"], subtext:"鹿角理亞<br>鹿角聖良", group:{"AqoursUnit":1}},
-	{name:"スクフェススマイル組", namealt:"スクフェス<br>スマイル組", color:["#f9c"], subtext:"高海千歌<br>国木田花丸<br>小原鞠莉", group:{"AqoursUnit":1}},
-	{name:"スクフェスピュア組",   namealt:"スクフェス<br>ピュア組",   color:["#9fb"], subtext:"松浦果南<br>渡辺曜<br>黒澤ルビィ", group:{"AqoursUnit":1}},
-	{name:"スクフェスクール組",   namealt:"スクフェス<br>クール組",   color:["#9df"], subtext:"桜内梨子<br>黒澤ダイヤ<br>津島善子", group:{"AqoursUnit":1}},
 
 	{name:"ちかりこ",       color:[ColChik, ColRiko], group:{"AqoursCP":1}},
 	{name:"ちかなん",       color:[ColChik, ColKana], group:{"AqoursCP":1}},
@@ -280,6 +279,7 @@ var CharList = [
 	{name:"スクスタスマイル組", namealt:"スクスタ<br>スマイル組", color:["#f9c"], subtext:"宮下愛<br>近江彼方<br>天王寺璃奈", group:{"NijiUnit":1}},
 	{name:"スクスタピュア組",   namealt:"スクスタ<br>ピュア組",   color:["#9fb"], subtext:"上原歩夢<br>中須かすみ<br>エマ・ヴェルデ", group:{"NijiUnit":1}},
 	{name:"スクスタクール組",   namealt:"スクスタ<br>クール組",   color:["#9df"], subtext:"桜坂しずく<br>朝香果林<br>優木せつ菜", group:{"NijiUnit":1}},
+	{name:"お昼休み放送室",     namealt:"虹ヶ咲学園<br>お昼休み放送室", color:["#fcb"], subtext:"朝香果林<br>優木せつ菜<br>天王寺璃奈", group:{"NijiUnit":1}},
 
 	{name:"あゆかす",       color:[ColAyum, ColKasu], group:{"NijiCP":1}},
 	{name:"あゆしず",       color:[ColAyum, ColShiz], group:{"NijiCP":1}},
@@ -609,18 +609,18 @@ function showResult() {
 	var i;
 	//ヘッダー
 	str += '<table class="resultTable" align="center"><tr>'
-	+ '<td class="result"; style="text-align:center;">順位</td>'
-	+ '<td class="result"; style="text-align:center;">名前</td></tr>';
+	+ '<td class="result"; style="text-align:center;">順位<\/td>'
+	+ '<td class="result"; style="text-align:center;">名前<\/td><\/tr>';
 
 	for (i=0; i<Member[SortingGroup].length; i++) {
 		num = Member[SortingGroup][lstMember[0][i]];
 		str += 
 		'<tr><td class="result"; style="background-color:'
 		+ ('coloralt' in CharList[num] ? CharList[num].coloralt : CharList[num].color[0])
-		+ '; text-align:right; padding-right:5px;">' +ranking+ '</td>'
+		+ '; text-align:right; padding-right:5px;">' +ranking+ '<\/td>'
 		+ '<td class="result"; style="background-color:'
 		+ ('coloralt' in CharList[num] ? CharList[num].coloralt : CharList[num].color[CharList[num].color.length-1])
-		+ '; padding-left:5px;">' + CharList[num].name + '</td></tr>';
+		+ '; padding-left:5px;">' + CharList[num].name + '<\/td><\/tr>';
 		
 		if(temp1 > 0){
 			temp0 += ranking + "位 " + CharList[num].name + "\n";
@@ -638,11 +638,11 @@ function showResult() {
 	}
 	//ツイート用
 	
-	str += '<\/table><br><button id="tweet-button" onclick="window.open().location.href=' + "'"
+	str += '<\/table><button id="tweet-button" onclick="window.open().location.href=' + "'"
 	+ 'https://twitter.com/share?url=https://ratius.github.io/lovelivesort/&text='
 	+ encodeURIComponent(temp0 + "#ラブライブなんでもソート")
 	+ '&count=none&lang=ja'
-	+ "'" + '">結果をツイート</\button>';
+	+ "'" + '">結果をツイート<\/\button>';
 	
 
 	document.getElementById("resultField").innerHTML = str;
@@ -662,22 +662,22 @@ function showImage() {
 	temp2 = 100/CharList[str1].color.length;
 	for(i=0; i<CharList[str1].color.length; i++){
 		temp += '<div class="CPcolor" style="background-color:' + CharList[str1].color[i]
-		+ '; left: ' + (i*temp2) + '%; width: ' + temp2 + '%"></div>';
+		+ '; left: ' + (i*temp2) + '%; width: ' + temp2 + '%"><\/div>';
 	}
 	temp += '<div class="ShownText"><b>'
-	+ ('namealt' in CharList[str1] ? CharList[str1].namealt : CharList[str1].name) + '</b>'
-	+ ('subtext' in CharList[str1] ? '<br><div class="note">'+ CharList[str1].subtext +'</div>' : "") + '</div>';
+	+ ('namealt' in CharList[str1] ? CharList[str1].namealt : CharList[str1].name) + '<\/b>'
+	+ ('subtext' in CharList[str1] ? '<br><div class="note">'+ CharList[str1].subtext +'<\/div>' : "") + '<\/div>';
 	document.getElementById("leftField").innerHTML = temp;
 
 	temp = "";
 	temp2 = 100/CharList[str2].color.length;
 	for(i=0; i<CharList[str2].color.length; i++){
 		temp += '<div class="CPcolor" style="background-color:' + CharList[str2].color[i]
-		+ '; left: ' + (i*temp2) + '%; width: ' + temp2 + '%"></div>';
+		+ '; left: ' + (i*temp2) + '%; width: ' + temp2 + '%"><\/div>';
 	}
 	temp += '<div class="ShownText"><b>'
-	+ ('namealt' in CharList[str2] ? CharList[str2].namealt : CharList[str2].name) + '</b>'
-	+ ('subtext' in CharList[str2] ? '<br><div class="note">'+ CharList[str2].subtext +'</div>' : "") + '</div>';
+	+ ('namealt' in CharList[str2] ? CharList[str2].namealt : CharList[str2].name) + '<\/b>'
+	+ ('subtext' in CharList[str2] ? '<br><div class="note">'+ CharList[str2].subtext +'<\/div>' : "") + '<\/div>';
 	document.getElementById("rightField").innerHTML = temp;
 
 
@@ -699,7 +699,7 @@ function shuffle(array) {
 
   return array;
 }
-</script>
+--></script>
 <style type="text/css">
 <!--
 /**********************************************************
@@ -716,7 +716,7 @@ body {
 	font-family: 'ＭＳ Ｐゴシック',sans-serif;
 	text-align: center;
 	vertical-align: middle;
-	width: 410px;
+	width: 440px;
 	margin-left: auto;
 	margin-right: auto;
 	border-collapse: separate;
@@ -726,13 +726,13 @@ body {
 }
 #leftField, #rightField{
 	position: relative;
-	width: 120px;
+	width: 130px;
 	height: 150px;
 	border:1px solid #aaa;
 }
 
 .middleField{
-	width: 120px;
+	width: 130px;
 	height: 70px;
 	border:1px solid #aaa;
 	background-color: #e4e4e4;
@@ -750,11 +750,10 @@ body {
 }
 
 .resultTable{
-	width:200px;
+	width: 200px;
 	font-size:12px;
 	line-height:120%;
-	margin-left:auto;
-	margin-right:auto;
+	margin: 10px auto;
 	border:1px solid #ccc;
 	border-collapse:collapse;
 }
@@ -786,36 +785,26 @@ body {
 </head>
 
 <body>
+<div style="text-align:center;">
+	<img src="logo.png" width="600" height="120" alt="キャラソート！">
 
-<div align="center">
-	<img src="logo.png" width="600" height="120">
-</div>
+<script><!--
+document.write('<form name="starter"><select name="CharacterSelect" onchange="initList()"><option selected>▼ソート対象を選択<\/option>');
 
-<form name="starter" align="center">
-	<select name="CharacterSelect" onchange="initList()">
-		<option selected>▼ソート対象を選択</option>
-
-<script type="text/javascript">
-<!--
 for(i=0; i<MemberGroup.length; i++){
-	document.write("<option>" + MemberGroup[i][0] + MemberGroup[i][1] + " (" + Member[i].length + ")</option>");
+	document.write("<option>" + MemberGroup[i][0] + MemberGroup[i][1] + " (" + Member[i].length + ")<\/option>");
 }
--->
-</script>
+document.write('<\/select><\/form>');
+--></script>
 
-	</select>
-</form>
-
-<table id="mainTable" align="center">
+<table id="mainTable">
 	<tr>
-
-		<td id="battleNumber" colspan="3" style="padding-bottom: 10px;">
-			&nbsp;
+		<td id="battleNumber" colspan="3" style="height: 30px; padding-bottom: 10px;">
 		</td>
 	</tr>
 	<tr>
 		<td id="leftField" onClick="if(finishFlag==0)sortList(-1);" rowspan="2">
-			<span id="leftField2" style="z-index:2;">&nbsp;</span>
+			<span id="leftField2" style="z-index:2;"></span>
 		</td>
 
 		<td class="middleField" onClick="if(finishFlag==0)sortList(0);">
@@ -823,7 +812,7 @@ for(i=0; i<MemberGroup.length; i++){
 			引き分け
 		</td>
 		<td id="rightField" onClick="if(finishFlag==0)sortList(1);" rowspan="2">
-			<span id="rightField2" style="z-index:2;">&nbsp;</span>
+			<span id="rightField2" style="z-index:2;"></span>
 		</td>
 	</tr>
 	<tr>
@@ -834,7 +823,7 @@ for(i=0; i<MemberGroup.length; i++){
 
 	</tr>
 </table>
-<div id="resultField" style="text-align:center;">
+<div id="resultField">
 <p>
 	「ラブライブ!」シリーズの色々なものをソートできます。<br>
 	上のプルダウンメニューからソートしたい対象を選んだ後、<br>
@@ -852,13 +841,15 @@ for(i=0; i<MemberGroup.length; i++){
 	要望・不具合報告は <a href="https://twitter.com/ratius55">@ratius55 のTwitter</a>までどうぞ。
 </p>
 <hr>
+<p>
 2019/07/06 「μ’sキャスト」「Aqoursキャスト」「虹ヶ咲キャスト」モードを追加<br>
 2019/07/05 結果をツイートする機能を追加。「虹ヶ咲ユニット」「虹ヶ咲カップリング」モードを追加<br>
 2018/10/17 「μ’sユニット」「Aqoursユニット」モードを追加<br>
 2018/09/22 「μ’sカップリング」「Aqoursカップリング」モードを追加<br>
 2018/02/26 穂乃果の父、女性シンガー、saint snowを追加（実装忘れ）<br>
 2018/02/25 公開<br>
+</p>
 </div>
-
+</div>
 </body>
 </html>
