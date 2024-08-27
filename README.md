@@ -1,3 +1,3 @@
 # lovelivesort
-移転しました。
+「ラブライブ！なんでもソート」は移転しました。
 移転先URLはこちら →https://ratius.github.io/LLS/
